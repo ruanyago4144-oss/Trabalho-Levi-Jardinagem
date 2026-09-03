@@ -2,10 +2,11 @@
     --color-primary: #a7c957;
     --black: #010103;
     --border: 0.2rem solid #f2e8cf;
-    font-size: 15px;
+    --header-height: 90px;
+    font-size: 62.5%; /* 1rem = 10px, base estável em TODAS as telas */
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     outline: 0;
@@ -14,461 +15,496 @@
     text-transform: capitalize;
     transition: 0.2s linear;
     font-family: "Roboto", sans-serif;
-
-    
+    box-sizing: border-box;
 }
-html{
+
+html {
     scroll-behavior: smooth;
-}
-/* =========================================
-   CORREÇÃO RESPONSIVA
-   ========================================= */
-
-html,
-body {
     width: 100%;
     max-width: 100%;
     overflow-x: hidden;
 }
 
-* {
-    box-sizing: border-box;
-}
-
-
-/* =========================
-   CELULAR
-   ========================= */
-
-@media (max-width: 768px) {
-
-    .header {
-        width: 100%;
-        left: 0;
-        right: 0;
-    }
-
-    .header section {
-        width: 100%;
-        max-width: 100%;
-        padding: 1rem 2rem;
-        box-sizing: border-box;
-    }
-
-    .navbar {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .navbar a {
-        margin: 0 0.5rem;
-        font-size: 1.5rem;
-        white-space: nowrap;
-    }
-
-
-    /* HERO */
-
-    .home-container {
-        width: 100%;
-        max-width: 100%;
-        min-height: 75vh;
-        overflow: hidden;
-    }
-
-    .home-container section {
-        width: 100%;
-        max-width: 100%;
-        min-height: 75vh;
-        padding: 2rem;
-        box-sizing: border-box;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .home-container .content {
-        width: 100%;
-        max-width: 100%;
-        text-align: center;
-    }
-
-
-    /* TEXTOS DO HERO */
-
-    .content p {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-
-    .content h3 {
-        font-size: 4rem;
-        line-height: 1.15;
-
-        /* IMPORTANTE */
-        white-space: normal;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
-    }
-
-
-    /* BOTÃO */
-
-    .home-container .btn {
-        margin-top: 2rem;
-    }
-
-
-    /* SOBRE */
-
-    .about {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        padding: 5rem 2rem;
-    }
-
-    .about .row {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    .about .content,
-    .about .content-image {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-
-    /* PROJETOS */
-
-    .project {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        padding: 4rem 2rem;
-    }
-
-    .foto-antes,
-    .foto-depois {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    .foto-antes img,
-    .foto-depois img {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        box-sizing: border-box;
-    }
-
-
-    /* MAPA */
-
-    .address {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        padding: 5rem 2rem;
-    }
-
-    .address iframe {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-
-    /* FOOTER */
-
-    .footer {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-}
-
-
-/* =========================
-   CELULARES PEQUENOS
-   ========================= */
-
-@media (max-width: 480px) {
-
-    .header section {
-        padding: 1rem;
-    }
-
-    .navbar {
-        gap: 0.5rem;
-    }
-
-    .navbar a {
-        font-size: 1.4rem;
-        margin: 0 0.3rem;
-    }
-
-    .home-container section {
-        padding: 2rem 1.5rem;
-    }
-
-    .content p {
-        font-size: 1.8rem;
-    }
-
-    .content h3 {
-        font-size: 3.2rem;
-    }
-
-    .btn {
-        font-size: 1.4rem;
-        padding: 1.2rem 2rem;
-    }
-
-}
-
-body{
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
     background-color: #fff;
 }
 
-section{
+/* cursor: default só onde faz sentido (texto), nunca em elementos clicáveis */
+a, button, .btn, .footer .share img {
+    cursor: pointer;
+}
+
+section {
     padding: 3rem 2rem;
     margin: 0 auto;
     max-width: 1200px;
 }
+
+/* =====================================================
+   HEADER / NAVBAR
+   ===================================================== */
+
 .header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    width: 100%;
     z-index: 99;
     
+}
+
+.header section {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .logo img {
     width: 100px;
     height: auto;
-    padding-top: 1rem;
+    padding-top: 0.5rem;
     filter: drop-shadow(2px 3px 5px rgba(0, 0, 0, 0.4));
 }
 
-.header section{
+.navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-top: 0.1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+  
+}
+
+.navbar a {
+    font-size: 1.6rem;
+    color: #D4AF37;
+    font-family: 'MinhaFonte', sans-serif;
+    text-shadow: 2px 1px 2px #6a571941;
+    white-space: nowrap;
+      padding: 2rem;
+}
+
+.navbar a:hover {
+    color: #B8860B;
+    border-bottom: #B8860B 0.1rem solid;
     padding-bottom: 0.1rem;
 }
 
-.navbar a{
-    margin: 0 1.2rem;
-    font-size: 1.2rem;
-    color: #D4AF37;
-    font-family: 'MinhaFonte', sans-serif;
-    text-shadow: 2px 1px 2px #6a571941 ;
-    }
-.navbar a:hover{
-    margin: 0 1rem;
-    font-size: 1.2rem;
-    color: #B8860B;
-    border-bottom: #B8860B 0.1rem solid;
-    padding-bottom: 0.01rem;
-    font-size: 1.35rem;
+/* Compensa o header fixo ao clicar em qualquer link do menu (#home, #about...) */
+[id] {
+    scroll-margin-top: var(--header-height);
 }
 
-.btn{
+/* =====================================================
+   MENU HAMBÚRGUER (mobile) — controlado só por CSS via checkbox
+   ===================================================== */
+
+.menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2.8rem;
+    height: 2rem;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.hamburger span {
+    display: block;
+    height: 0.3rem;
+    width: 100%;
+    background: #D4AF37;
+    border-radius: 0.2rem;
+}
+
+/* =====================================================
+   BOTÃO
+   ===================================================== */
+
+.btn {
     background: var(--color-primary);
     color: #fff;
     padding: 1rem 3rem;
-    font-size: 1.2rem;
-    cursor: pointer;
+    font-size: 1.4rem;
     margin-top: 1rem;
     display: inline-block;
 }
 
-.btn:hover{
+.btn:hover {
     letter-spacing: 0.1rem;
     background-color: #e3fca9;
     color: #6f6e6e;
 }
 
-.home-container{
-    background: url("./Imagens/9.jpeg") no-repeat center center/cover;
-    height: 100%;
-    background-position: center;
-    background-size: cover;
+/* =====================================================
+   HOME / HERO
+   ===================================================== */
 
+.home-container {
+    background: url("./Imagens/9.jpeg") no-repeat center center/cover;
+    width: 100%;
+    position: relative;
 }
 
-.home-container section{
+/* escurece a foto de fundo de forma uniforme, sem precisar forçar sombra no texto */
+.home-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(1, 1, 3, 0.45) 0%, rgba(1, 1, 3, 0.3) 45%, rgba(1, 1, 3, 0.55) 100%);
+    z-index: 1;
+}
+
+.home-container section {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
-    min-height: 100vh;
+    min-height: 100svh;
     text-shadow: 2px 1px 2px #00000049;
+    padding-top: calc(var(--header-height) + 2rem);
 }
 
 .content {
-     max-width: 60rem;}
+    max-width: 60rem;
+    width: 100%;
+}
 
+/* "Levi Jardinagem" — funciona como assinatura/kicker acima do título */
+.content p {
+    color: #D4AF37;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: clamp(1.4rem, 1.8vw, 1.8rem);
+    font-weight: 400;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1.2rem;
+    position: relative;
+    display: inline-block;
+}
 
+/* traço fino dourado embaixo do nome, dá um ar de selo/assinatura */
+.content p::after {
+    content: '';
+    display: block;
+    width: 4.5rem;
+    height: 0.2rem;
+    background: #D4AF37;
+    margin-top: 0.8rem;
+}
+
+/* "PAISAGISMO E JARDINAGEM" — o título principal, mais sóbrio e espaçado */
 .content h3 {
     color: #fff;
-    font-size: 6rem;
-    font-weight: 400;
-    white-space: nowrap;
-    text-shadow: 3px 4px 6px rgba(0, 0, 0, 0.8);
-}
-
-.content p {
-    color: #fff;
-    font-size: 2rem;
-    font-weight: 500;
-    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.8);
-}
-
-.title{
-    font-size: 3rem;
-    color: #D4AF37;
-    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: clamp(3rem, 5.2vw, 5.4rem);
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    line-height: 1.2;
     text-transform: uppercase;
-    padding: 3rem 0;
-    font-weight: 600;
-    text-shadow: 1px 1px 1px #06050239 ;
+    text-shadow: 2px 3px 8px rgba(0, 0, 0, 0.7);
+    overflow-wrap: break-word;
+}
+
+/* =====================================================
+   TÍTULOS DE SEÇÃO
+   ===================================================== */
+
+.title {
+    color: #B8860B;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: clamp(2rem, 3.2vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 1rem 0 2rem;
+    position: relative;
+}
+
+/* traço fino centralizado abaixo do título — mesma assinatura visual do hero */
+.title::after {
+    content: '';
+    display: block;
+    width: 4.5rem;
+    height: 0.2rem;
+    background: #D4AF37;
+    margin: 1.2rem auto 0;
+}
+
+.title span {
+    color: #D4AF37;
     font-weight: 400;
 }
 
-.title span{
-    color: #B8860B ;
-    padding-bottom: 3rem;
-    
+/* "ANTES" / "DEPOIS" funcionam como rótulos menores sobre as fotos */
+.project .title {
+    font-size: 1.7rem;
+    letter-spacing: 0.25rem;
+    padding: 0 0 1.5rem;
 }
 
-.about .row{
+.project .title::after {
+    width: 3rem;
+    margin-top: 0.8rem;
+}
+
+/* =====================================================
+   SOBRE
+   ===================================================== */
+
+.about .row {
     display: flex;
     align-items: center;
     gap: 1.5rem;
     background-color: #f2e8cf3a;
     border-radius: 0 0.5rem 0 0.5rem;
+    flex-wrap: wrap;
 }
 
-.about .row .content-image img{
-    width: 100%;
-    max-width: 100%;
+.about .row .content-image,
+.about .row .content {
+    flex: 1 1 30rem; /* quebra pra coluna sozinho quando não cabe */
 }
-.about .row .content{
+
+.about .row .content-image img {
+    width: 100%;
+    display: block;
+}
+
+.about .row .content {
     padding: 2rem;
 }
 
-.about .row .content h3{
-        font-size: 5rem;
-        color: #403d39
+.about .row .content h3 {
+    font-size: clamp(2.8rem, 4vw, 5rem);
+    color: #403d39;
 }
 
-.about .row .content p{
+.about .row .content p {
     font-size: 1.6rem;
-    color:#403d39;
-    padding-top: 5rem;
+    color: #403d39;
+    padding-top: 2rem;
     line-height: 1.8;
-    
 }
 
+/* =====================================================
+   PROJETOS (antes / depois)
+   ===================================================== */
 
-
-.project{
+.project {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 2rem;
     align-items: flex-start;
 }
 
-.foto-antes,.foto-depois{
-    width: 50%;
-
-  
+.foto-antes,
+.foto-depois {
+    flex: 1 1 30rem; /* empilha automaticamente em telas estreitas */
 }
 
-.foto-antes img, .foto-depois img{
+.foto-antes img,
+.foto-depois img {
     width: 100%;
     height: 350px;
     object-fit: cover;
     border: var(--border);
     padding: 0.1rem;
-    
 }
 
-.foto-antes h3,.foto-depois h3{
+.foto-antes h3,
+.foto-depois h3 {
     font-size: 3rem;
     text-align: center;
     padding-bottom: 10px;
     color: #D4AF37;
 }
 
-
-.casa{
+.casa {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     gap: 1.5rem;
 }
 
-.casa p{
+.casa p {
     text-align: center;
 }
 
-.address{
+/* =====================================================
+   MAPA
+   ===================================================== */
+
+.address {
     display: flex;
     align-items: center;
     flex-direction: column;
-
 }
 
-.footer{
+.address iframe {
+    width: 100%;
+    max-width: 700px;
+    height: 400px;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.footer {
     text-align: center;
 }
 
-.footer .share{
-    padding: 1rem 0;
-}
-
-.footer .share img{
-    margin: 0.3rem;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-.footer .share img:hover{
-    background-color: var(--border);
-}
-
-.footer{
-    text-align: center;
-}
-.footrer h3{
-    color: #D4AF37 ;
+.footer h3 {
+    color: #D4AF37;
     font-size: 3rem;
     font-weight: 500;
-    cursor: pointer;
 }
 
-.footer h4{
+.footer h4 {
     font-size: 1.5rem;
     font-weight: 400;
 }
-.footer h5{
+
+.footer h5 {
     padding-top: 1.5rem;
     padding-bottom: 2rem;
     font-size: 1.2rem;
     font-weight: 300;
 }
-* {
-    cursor: default;
+
+.footer .share {
+    padding: 1rem 0;
 }
 
+.footer .share img {
+    margin: 0.3rem;
+    border-radius: 50%;
+}
+
+.footer .share img:hover {
+    background-color: var(--border);
+}
+
+/* =====================================================
+   TABLETS  (≤ 991px)
+   ===================================================== */
+
+@media screen and (max-width: 991px) {
+    .navbar a {
+        font-size: 1.5rem;
+    }
+
+    .project,
+    .about .row {
+        flex-direction: column;
+    }
+
+    .about .content-image img {
+        max-width: 600px;
+        margin: auto;
+    }
+
+    .about .content {
+        text-align: center;
+    }
+}
+
+/* =====================================================
+   CELULARES  (≤ 768px)
+   ===================================================== */
+
+@media screen and (max-width: 768px) {
+    :root {
+        --header-height: 68px; /* header vira 1 linha só: logo + hambúrguer */
+    }
+
+    .header section {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8rem 1.5rem;
+        flex-wrap: nowrap;
+    }
+
+    .logo img {
+        width: 75px;
+        padding-top: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* menu vira um painel deslizante logo abaixo do header, escondido por padrão */
+    .navbar {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: rgba(1, 1, 3, 0.94);
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+    }
+
+    .navbar a {
+        width: 100%;
+        padding: 1.4rem 0;
+        text-align: center;
+        font-size: 1.6rem;
+    }
+
+    .navbar a:hover {
+        border-bottom: none;
+        background: rgba(212, 175, 55, 0.15);
+    }
+
+    /* checkbox marcado → mostra o painel */
+    .menu-toggle:checked ~ .navbar {
+        max-height: 40rem;
+        opacity: 1;
+    }
+
+    .home-container section {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .address iframe {
+        height: 320px;
+    }
+}
+
+/* =====================================================
+   CELULARES PEQUENOS  (≤ 375px)
+   ===================================================== */
+
+@media screen and (max-width: 375px) {
+    .navbar a {
+        font-size: 1.3rem;
+    }
+
+    .btn {
+        font-size: 1.3rem;
+        padding: 1.1rem 2rem;
+    }
+}
