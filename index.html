@@ -3,6 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
+    <script>
+        // Evita que o navegador pule direto pra uma âncora (ex: #footer)
+        // quando a página é recarregada com um # já na URL.
+        if (window.location.hash) {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Levi Jardinagem</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,7 +18,6 @@
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="/Imagens/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -88,7 +94,7 @@
 
         <section class="footer" id="footer">
             <h4>TELEFONES: 11 95768-4903</h4>
-            <h5 class="date">SEG - SAB 8:00 - 17:00</h5>
+            <h5 class="date">SEG - SAB 9:30 - 17:00</h5>
             <div class="share">
                 <a href="https://www.instagram.com/levi_jardinagem?igsi=MTEzemF6cmszc2F4cA%3D%3D"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/instagram-new.png" alt="instagram-new"/></a>
             </div>
